@@ -7,7 +7,7 @@ from rotary_embedding_torch import RotaryEmbedding
 from fairscale.nn.checkpoint import checkpoint_wrapper
 from functools import partial
 from torch import einsum
-from .mha_flash import FlashAttentionBlock
+# from .mha_flash import FlashAttentionBlock
 import xformers
 import xformers.ops
 
