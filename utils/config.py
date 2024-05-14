@@ -73,6 +73,11 @@ class Config(object):
             type=str
         )
         parser.add_argument(
+            '--log_dir',
+            help='log_dir',
+            type=str
+        )
+        parser.add_argument(
             '--input_text_desc',
             default='A colorful and beautiful fish swimming in a small glass bowl with multicolored piece of stone, Macro Video',
             type=str,

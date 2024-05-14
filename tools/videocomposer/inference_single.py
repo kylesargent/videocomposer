@@ -367,6 +367,7 @@ def worker(gpu, cfg):
     log_dir = ops.generalized_all_gather(cfg.log_dir)[0]
     exp_name = os.path.basename(cfg.cfg_file).split('.')[0] + '-S%05d' % (cfg.seed)
     log_dir = os.path.join(log_dir, exp_name)
+    log_dir = cfg.log_dir
     os.makedirs(log_dir, exist_ok=True)
     cfg.log_dir = log_dir
     if cfg.rank == 0:
@@ -760,7 +761,7 @@ def visualize_with_model_kwargs(model_kwargs,
     video_data = rearrange(video_data, '(b f) c h w -> b c f h w', b = bs_vd)
     ori_video = ori_video[:viz_num]
     
-    oss_key = os.path.join(cfg.log_dir, f"rank_{cfg.world_size}-{cfg.rank}.gif")
+    oss_key = os.path.join(cfg.log_dir, f"rank_{cfg.world_size}-{cfg.rank}.mp4")
     text_key = osp.join(cfg.log_dir, 'text_description.txt')
     
     # Save videos and text inputs.

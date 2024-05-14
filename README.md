@@ -1,3 +1,9 @@
+# Kyle's edits (to set up benchmark)
+pip install rotary-embedding-torch
+pip install ipdb
+pip install scikit-video
+pip install pynvml
+
 # VideoComposer
 
 Official repo for [VideoComposer: Compositional Video Synthesis with Motion Controllability](https://arxiv.org/pdf/2306.02018.pdf)
