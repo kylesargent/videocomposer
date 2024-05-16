@@ -2,6 +2,7 @@ import sys
 import mediapy
 from tqdm import tqdm
 import os
+import json
 
 
 def load_various_sgm(h, w, droid_downsample, dataset):
@@ -102,6 +103,11 @@ def main():
                 / 2
                 + 0.5
             )
+
+            data_path = os.path.join(base_path, "%.5d_data.json" % idx)
+            data = {"fov": batch['aux_fov_deg'].ravel()[0].item()}
+            with open(data_path, 'w') as fp:
+                json.dump(data, fp)
 
             mediapy.write_image(image_path, image)
             # raise

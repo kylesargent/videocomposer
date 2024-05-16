@@ -280,6 +280,11 @@ def video_tensor_to_gif(tensor, path, duration = 120, loop = 0, optimize = True)
     tensor = tensor.permute(1,2,3,0)
     images = tensor.unbind(dim = 0)
     images = [(image.numpy()*255).astype('uint8') for image in images]
+    
+    arr_path, _ = os.path.splitext(path)
+    arr_path += '.npy'
+    np.save(arr_path, np.array(images))
+
     imageio.mimwrite(path, images, fps=8)
     return images
 
